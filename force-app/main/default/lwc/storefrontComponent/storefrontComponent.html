@@ -1,0 +1,307 @@
+<template>
+	<div class="bck slds-p-bottom_xx-large" >
+		<div class="slds-m-top_medium">
+			<div class="slds-align_absolute-center slds-p-around_small">
+				<div>
+					<template if:true={showicon}>
+						<div class="slds-align_absolute-center slds-m-top_large">
+							<img src={CartIcon}></img>
+						</div>
+					</template>
+					<template if:false={showicon}>
+						<div class="slds-align_absolute-center slds-m-top_large">
+							<img src={verificationIcon}></img>
+						
+						</div>
+					</template>
+					<div class="slds-text-heading_large heading slds-p-top_medium slds-align_absolute-center"> <b>{pagehaeading}</b></div>
+					<template if:false={showicon}>
+						<div class="slds-text-heading_small heading slds-m-bottom_medum">{label.account_verification_headingline}</div>
+						<!--- <div class="slds-m-left_small slds-text-heading_medium heading"> Follow the steps below  store.</div>-->
+					</template>
+					<template if:true={showicon}>
+						<div class="slds-text-heading_medium heading"> {label.discount_registration_headingline}</div>
+					</template>
+				</div>
+			</div>
+		</div>
+		<!---<template if:true={showSpin}>
+      <lightning-spinner variant="brand" size="large"> </lightning-spinner>
+  </template>-->
+		<!-------->
+		<div class="slds-m-around_large slds-p-bottom_large main_Div" style="background-color:#F6F6F6;">
+			<!---Step1 Register for your refund-->
+			<div class="step1_Div slds-p-around_medium slds-grid  ">
+				<template if:true={iconchange}>
+					<div class="slds-col slds-size_1-of-12  icondiv">
+						<img src={approveIcon} class="imgicon"></img>
+
+						<!--<lightning-icon icon-name="action:approval" alternative-text="Error!" size="xx-small"></lightning-icon>-->
+					</div>
+				</template>
+				<template if:false={iconchange}>
+					<div class="slds-col slds-size_1-of-12 icondiv">
+						<img src={eclipseIcon} class="imgicon"></img>
+					</div>
+				</template>
+				<p class="font_stepDiv slds-col slds-size_10-of-12">{label.register_for_your_refund}</p>
+			</div>
+			<template if:true={page1show}>
+				
+				<div>
+					<p class="ptag">{label.register_for_your_refund_line1}&nbsp;<a href={label.fitbitionicexpertinquirycom} class="greencolor"><b>{label.fitbitionicexpertinquirycom}.</b></a></p>
+					<p class="ptag">{label.register_for_your_refund_line2}
+					</p>
+				</div>
+			</template>
+			<!---Step1 end-->
+			<!--- step2-->
+			<div class="step1_Div slds-p-around_medium slds-grid  ">
+				<template if:true={iconchange}>
+					<div class="slds-col slds-size_1-of-12 icondiv">
+						<img src={approveIcon} class="imgicon"></img>
+					</div>
+				</template>
+				<template if:false={iconchange}>
+					<div class="slds-col slds-size_1-of-12 icondiv">
+						<img src={eclipseIcon} class="imgicon"></img>
+					</div>
+				</template>
+				<p class="font_stepDiv slds-col slds-size_10-of-12">{label.login_to_your_fitbit_account} </p>
+			</div>
+			<template if:true={page1show}>
+				<template if:true={loginstep}>
+				<div>
+					<p class="ptag">{label.login_to_your_fitbit_account_ul}</p>
+					<ul class="slds-list_dotted  ptag slds-m-top_large slds-m-left_large slds-p-left_medium">
+						<li>{label.login_to_your_fitbit_account_li}</li>
+						<li>{label.login_to_your_fitbit_account_li2}</li>
+						<li>{label.login_to_your_fitbit_account_li3}</li>
+					</ul>
+					<div class="slds-m-around_large">
+						<lightning-button variant="brand" label="Log In" onclick={handleClick} class="ptag slds-m-top_medium btn"></lightning-button>
+					</div>
+				</div>
+			</template>
+			
+			</template>
+			<!---step2 end-->
+			<!--- step3-->
+			<div class="step3_Div slds-p-around_medium slds-grid  ">
+				<template if:true={noerror}>
+					<template if:true={iconchange2}>
+						<div class="slds-col slds-size_1-of-12 icondiv">
+							<img src={approveIcon} class="imgicon"></img>
+						</div>
+					</template>
+					<template if:false={iconchange2}>
+						<div class="slds-col slds-size_1-of-12 icondiv">
+							<img src={eclipseIcon} class="imgicon"></img>
+						</div>
+					</template>
+				</template>
+				<template if:false={noerror}>
+					<div class="slds-col slds-size_1-of-12 icondiv">
+						<img src={alertIcon} class="imgicon"></img>
+						<!--<lightning-icon icon-name="utility:warning" alternative-text="Error!" size="xx-small" class="color_icon"></lightning-icon>-->
+					</div>
+				</template>
+				<p class="font_step3Div slds-col slds-size_10-of-12">{step3heading}</p>
+			</div>
+			<template if:true={step3}>
+				<template if:true={stepthreecontentsucess}>
+					<div class=" step3content slds-p-around_large ">
+						<p class="slds-m-bottom_medium" style="color:green;">{label.reference_code_sucessmsg}</p>
+						<p class="slds-m-bottom_large">{label.reference_code_sucessmsg_line1}</p>
+						<template if:true={codemismatch}>
+							<p class="slds-m-top_small slds-m-bottom_small" style="color:#AE3543;">{inperror} </p>
+						</template>
+						<div class="slds-grid slds-m-top_medium">
+							
+							<lightning-input pattern="[0-9]{16}" onchange={Changehandle} max-length="16" type="text"  placeholder="Reference code" class="regCode slds-m-right_medium  slds-m-bottom_medium slds-size_4-of-12 refrencecode" ></lightning-input>
+							<lightning-input pattern="[0-9]{16}" onchange={Changehandle} max-length="16"  type="text" placeholder="Reenter Reference code" class="regCode slds-size_4-of-12 slds-m-bottom_medium  reerefrencecode" ></lightning-input>
+						</div>
+						<lightning-button variant="brand" label="Submit" onclick={handleSubmit} disabled={disablesubmitbutton} class="  btn"></lightning-button>
+
+						
+					</div>
+					<div class="slds-m-top_large slds-m-bottom_large banner">
+						<p class="slds-align_absolute-center slds-p-around_xx-small"> {label.reference_code_bannermsg} &nbsp;<a href={label.fitbitionicexpertinquirycom} style="color:white;"><b>{label.fitbitionicexpertinquirycom}.</b></a> </p>
+					</div>
+				</template>
+				<template if:false={stepthreecontent}>
+					<div class=" step3content">
+						<p class="ptag" style="color:#AE3543;">{errorMsg}</p>
+						<p class="ptag slds-m-top_medium" if:true={isprocessed}>{label.reference_code_isalreadyprocessed}{label.reference_code_isalreadyprocessed2} </p>
+						
+							<p class="ptag slds-m-bottom_medium" if:true={heathprogram}>Your device is part of a health program. To participate in the recall, visit <a href="" class="greencolor">help.fitbit.com/ionic</a>
+			
+							</p>
+						
+						
+						<p class="ptag slds-m-top_medium" if:true={refrencecodeduplicate}>Check your email for next steps. If you don’t see the email, check your spam filter. If you believe this is a mistake, contact us. </p>
+						<!--<p class="ptag slds-m-top_medium" if:true={isprocessed}>{label.reference_code_isalreadyprocessed2}	</p>-->
+						<p class="ptag slds-m-top_medium" if:true={account_error}>{label.reference_code_errormsg}</p>
+						<template if:false={heathprogram}>
+						<div class="slds-m-top_medium">
+							<lightning-button variant="brand" label="Contact Support" onclick={handleSupport} class="ptag slds-m-top_medium  slds-col slds-size_4-of-5 btn"></lightning-button>
+						</div>
+						<div class="slds-m-top_large slds-m-bottom_large banner">
+							<p class="slds-align_absolute-center slds-p-around_xx-small">{label.reference_code_bannermsg} <a href={label.fitbitionicexpertinquirycom} style="color:white;"><b>{label.fitbitionicexpertinquirycom}.</b></a> </p>
+						</div>
+						</template>
+					</div>
+				</template>
+				
+			</template>
+			<!----step3 end--->
+			<!---step4-->
+			<template if:true={virtualstep4}>
+				<div class="step4_Div slds-p-around_medium slds-grid ">
+					<template if:false={step4warning}>
+						<template if:true={iconchange3}>
+							<div class="slds-col slds-size_1-of-12 icondiv">
+								<img src={approveIcon} class="imgicon"></img>
+							</div>
+						</template>
+						<template if:false={iconchange3}>
+							<div class="slds-col slds-size_1-of-12 icondiv">
+								<img src={eclipseIcon} class="imgicon"></img>
+							</div>
+						</template>
+					</template>
+					<template if:true={step4warning}>
+						<div class="slds-col slds-size_1-of-12 icondiv">
+							<img src={alertIcon} class="imgicon"></img>
+						<!---	<lightning-icon icon-name="utility:warning" alternative-text="Error!" size="xx-small" class="color_icon"></lightning-icon>-->
+						</div>
+					</template>
+					<p class="font_step3Div slds-col slds-size_10-of-12">{label.disable_device_syncing}</p>
+				</div>
+				<template if:true={step4content}>
+					<p class="ptag" style="color:green;">{label.reference_code_sucessmsg}</p>
+					<p class="ptag"> {label.device_disable_syncing_sucessline2}</p>
+					<p class="ptag">{label.disable_device_syncing_sucessline3}</p>
+					<p class="ptag ">
+						<lightning-input type="checkbox" onchange={handlecheck} style="float: left;"> </lightning-input> {label.disable_device_syncing_sucessline4} </p>
+					<div class="slds-m-around_medium slds-p-around_medium">
+						<lightning-button variant="brand" label="Disable Device" onclick={disabledevice} class="slds-m-left_x-small btn" disabled={disablebutton}></lightning-button>
+					</div>
+				</template>
+				<template if:true={step4sucess}>
+					<p class="ptag slds-p-around_medium " style="color:#798184; ">{label.disable_complete_successmsg}</p>
+				</template>
+				<template if:true={step4error}>
+					<template if:true={Trayagainerror}>
+					<p class="ptag" style="color:#AE3543;">{label.disable_device_errormsg}</p>
+					<div class="slds-m-top_medium slds-p-bottom_medium" style="border:none;border-bottom:1px solid #798184;">
+					<p class="ptag slds-m-top_medium">To verify that you have the device, connect it to your account using the instructions below. After you connect your device, click Try Again to verify that your account has an impacted Ionic connected to it</p>
+					</div>
+					<p class="ptag"><b>{label.disable_device_errormsgline1}</b></p>
+					<div>
+						<ul class="slds-list_dotted  ptag slds-m-top_large slds-m-left_large slds-p-left_medium">
+							<li> {label.disable_device_errormsglineli1}</li>
+							<li> {label.disable_device_errormsglineli2} </li>
+							<li>{label.disable_device_errormsglineli3}</li>
+							<li>{label.disable_device_errormsglineli4}</li>
+							<li>{label.disable_device_errormsglineli5ul}
+								<ul class="slds-p-left_medium slds-list_dotted">
+									<li>{label.disable_device_errormsglineli5li1}</li>
+									<li>{label.disable_device_errormsglineli5li2}</li>
+								</ul>
+							</li>
+						</ul>
+						<p class="ptag">{label.disable_device_errormsgline5} <a href="">{label.HowdoIsetupmyFitbitAccount}</a> {label.disable_device_errormsgline6} </p>
+					</div>
+					<div class="slds-m-around_medium slds-p-around_medium">
+						<lightning-button variant="brand" label="Try Again" onclick={tryagainClick} class="slds-m-left_x-small btn"></lightning-button>
+					</div>
+					<div class="slds-m-top_large slds-m-bottom_large banner">
+						<p class="slds-align_absolute-center slds-p-around_xx-small">{label.disable_device_errormsgbanner}<a href="https://devbox-fitbithelp.cs194.force.com/fitbitmyhelp/s/support" style="color:white;"><b>{label.contact_us}</b></a> </p>
+					</div>
+					</template>
+					<template if:true={fraudflaggederror}>
+						<div class="slds-m-top_medium slds-p-bottom_medium" >
+							<p class="ptag">
+								We need to further review the information about your device.
+
+							</p>
+							<p class="ptag">
+								We’ll respond to you by email within a week.
+							</p>
+
+						</div>
+
+					</template>
+					<template if:true={disabledrecall}>
+						<p class="ptag" style="color:#AE3543;">Your Ionic is already disabled as part of the recall.</p>
+						<p class="ptag slds-m-top_medium" > Check your email for next steps. If you don’t see the email, check your spam filter. If you believe this is a mistake, contact us.</p>
+						<div class="slds-m-top_medium">
+							<lightning-button variant="brand" label="Contact Support" onclick={handleSupport} class="ptag slds-m-top_medium  slds-col slds-size_4-of-5 btn"></lightning-button>
+						</div>
+
+					</template>
+					
+				</template>
+			</template>
+			<!----step4 generator-->
+			<!--- step4genterorstore-->
+			<template if:false={virtualstep4}>
+				<div class="step4_Div slds-p-around_medium slds-grid ">
+					<template if:true={stepwarning4}>
+					<template if:true={iconchange3}>
+						<div class="slds-col slds-size_1-of-12 icondiv">
+							<img src={approveIcon} class="imgicon"></img>
+						</div>
+					</template>
+					<template if:false={iconchange3}>
+						<div class="slds-col slds-size_1-of-12 icondiv">
+							<img src={eclipseIcon} class="imgicon"></img>
+						</div>
+					</template>
+				</template><template if:false={stepwarning4}>
+					<div class="slds-col slds-size_1-of-12 icondiv">
+						<img src={alertIcon} class="imgicon"></img>
+					<!---	<lightning-icon icon-name="utility:warning" alternative-text="Error!" size="xx-small" class="color_icon"></lightning-icon>-->
+					</div>
+
+				</template>
+					<p class="font_step3Div slds-col slds-size_10-of-12 "> {step4heading} </p>
+				</div>
+				<template if:true={step4content}>
+					<!---
+     <p class="ptag"> Use the following code in our dedicated store for a special discount on select Fitbit devices, bands, and services available in your region, 
+for a limited time</p>
+    <div class="slds-grid ">
+      
+      <input disabled class="abc" style="position:fixed;top:-5rem;height:1px;width:10px;"></input> 
+      <lightning-input placeholder="Store Code" disabled class="slds-col gncode slds-m-around_large slds-size_4-of-12">
+        </lightning-input>
+       <lightning-button  variant="brand" label="Copy"  disabled={cpydisable} onclick={doCopy} class="slds-m-top_large subtn slds-col slds-size_3-of-12 btn "></lightning-button>
+       
+      </div>
+      <div class="slds-m-top_large slds-m-bottom_large banner"><p class="slds-align_absolute-center slds-p-around_xx-small">The store code expires after 30 days. You’ll also receive an email with this information </p></div>  
+            -->
+				</template>
+				<template if:true={discountstep4error}>
+					<p class="ptag" style="color:#AE3543;">{errorMsg}</p>
+					<p class="ptag slds-m-top_medium" > Check your email for next steps. If you don’t see the email, check your spam filter. If you believe this is a mistake, contact us.</p>
+					<div class="slds-m-top_medium">
+						<lightning-button variant="brand" label="Contact Support" onclick={handleSupport} class="ptag slds-m-top_medium  slds-col slds-size_4-of-5 btn"></lightning-button>
+					</div>
+
+
+				</template>
+				<template if:false={step4contentsucess}>
+					<p class="thanksmsg ptag" style="color:green;">{label.device_disable_sucessmsg}</p>
+					<p class="ptag">{label.device_disable_sucessmsg2}</p>
+				</template>
+			</template>
+			<!--step4end-->
+		</div>
+		<!---end-->
+	</div>
+  <template if:true={showSpin}>
+      <lightning-spinner variant="brand"   class= "slds-m-around_small spin" size="large"> </lightning-spinner>
+  </template>
+</template>

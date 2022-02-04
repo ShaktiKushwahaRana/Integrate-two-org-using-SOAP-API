@@ -1,0 +1,28 @@
+.div
+{
+    margin : 30px;
+}
+.submitBtn
+{
+    
+    --slds-c-button-inverse-shadow-focus:0 0 3px #5f5b5b;
+    --slds-c-button-spacing-inline-end:3rem;
+}
+.con
+{
+   
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.pon
+{
+    border: 3ps solid red;
+    max-width:100px;
+    max-height:2%;
+}
+.customIcon{
+    width: 100px;
+    height: 100px;
+    margin-left:20px;
+}
+    

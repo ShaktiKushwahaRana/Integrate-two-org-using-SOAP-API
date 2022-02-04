@@ -1,0 +1,33 @@
+<template>
+    <!-- <div class="pon">
+        <lightning-icon icon-name="standard:account" alternative-text="Account" title="Account" class="slds-border_top slds-border_right"></lightning-icon> -->
+        <!-- <lightning-icon icon-name="utility:cart" alternative-text="Error!"  class="red-icon slds-border_top slds-border_right slds-border_left slds-border_bottom"></lightning-icon> -->
+    <!-- </div> --> 
+   
+    <lightning-card title='Verify address'>
+         <!-- <img src={lampPng} alt="lampIcon" class="customIcon "> -->
+       <!-- <lightning-icon class="green-world don" icon-name="action:web_link" size="large"></lightning-icon> -->
+<div class="div">
+        <lightning-input type="text" name="input1" label="Enter  house Number"></lightning-input>
+        <lightning-input type="text"  name="input2" label="Enter Area"></lightning-input>
+        <lightning-input type="text"  name="input3" label="Enter City"></lightning-input>
+        <lightning-input type="text"  name="input4" label="Enter State" required="true"></lightning-input>
+        <lightning-input type="Number" name="input5" label="Enter Pincode"></lightning-input>
+        <lightning-input type="text"  name="input6" label="Enter landmark"></lightning-input>
+        <lightning-input type="text"  name="input7" label="Enter  Country"></lightning-input>
+    
+        <div class="con">
+            <lightning-button variant="success"   label="Submit" title="Successful action" onclick={handleClick} class="slds-m-left_x-small submitBtn"></lightning-button>
+        </div>
+        
+        
+        <template if:true={isLoaded}>
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </template>
+            
+        <lightning-input type="text" label="Deliverable Address" value={fResult}></lightning-input>
+        <lightning-input type="text" label="Result Message" value={fmsg}></lightning-input>
+    </div>
+    
+    </lightning-card>
+</template>

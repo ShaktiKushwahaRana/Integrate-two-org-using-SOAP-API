@@ -1,0 +1,98 @@
+.abc{
+	/*display : none;*/
+}
+.bck{
+	background-color:#112530;
+	/*height :100vh;*/
+	padding-bottom: 150px;
+	  font: 100% / 1.5 "Salesforce Sans", Arial, sans-serif;
+}
+
+.color_icon{
+	--lwc-colorTextIconDefault:red;
+
+}
+.heading{
+	color:white;
+}
+.thanksmsg{
+	font-size: 15px;
+}
+
+.step1_Div {
+	background-color: #FFFFFF	;
+	color:black;
+}
+.step3_Div{
+	background-color: #E7E9EA;
+	color:#A0A8AC;
+
+}
+.step4_Div{
+	background-color: #E7E9EA;
+     color:#A0A8AC;
+}
+p.font_stepDiv {
+        font-size: 16px;
+		font-weight: 700;
+		font-style: normal;
+		line-height: 24px;
+}
+.font_step3Div{
+	
+	font-size: 16px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 24px;
+
+}
+
+.icondiv{
+
+	margin-right: 5px;
+    width: 23px;
+}
+.imgicon{
+	width:15px;
+	height:15px;
+}
+.main_Div{
+	    width: 79%;
+    margin: auto;
+   /* height:150vh;*/
+	margin-top:25px;
+}
+.spin{
+	height:170vh;
+	margin-top:25px;
+	margin: auto;
+}
+lightning-icon{
+	padding: 3px;
+}
+.ptag{
+	    margin: 15px 26px 0px 31px;
+}
+.greencolor{
+	color:rgba(0, 122, 129, 1);
+	
+	text-decoration: underline;
+}
+.btn{
+  	--sds-c-button-brand-color-background: rgba(0, 122, 129, 1);
+	  --slds-c-button-brand-color-background-hover: rgba(0, 53, 55, 1);
+}
+.banner{
+	background-color: #505A5E;
+	color:white;
+}
+.step3content{
+	/*height:60vh;*/
+}
+.subtn{
+	margin: 17px;
+}
+.auth{
+	background-color: white;
+	color:black;
+}
